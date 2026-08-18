@@ -1,454 +1,231 @@
-<!DOCTYPE HTML>
-<!--
-	Strata by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)123
--->
-<html>
-	<head>
-		<title>Binh Tran Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>GHG DI — Risk Exposure (Embed Test)</title>
+<script src="https://cdn.jsdelivr.net/npm/powerbi-client@2.23.1/dist/powerbi.min.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    padding: 24px;
+    background: #f5f6f8;
+    color: #1a1a1a;
+  }
+  h1 {
+    font-size: 18px;
+    margin: 0 0 16px;
+  }
+  .toolbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  #exportBtn {
+    background-color: #2F5FDA;
+    color: #fff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  #exportBtn:hover:not(:disabled) { opacity: 0.85; }
+  #exportBtn:disabled { opacity: 0.4; cursor: not-allowed; }
+  #status {
+    font-size: 12px;
+    color: #444;
+  }
+  #status.is-error { color: #A80000; }
+  #reportContainer {
+    width: 1140px;
+    height: 541.25px;
+    max-width: 100%;
+    border: 1px solid #ddd;
+    background: #fff;
+  }
+  .config-note {
+    max-width: 1140px;
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: #FFF8E1;
+    border: 1px solid #F0D264;
+    border-radius: 4px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  code {
+    background: #eee;
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+</style>
+</head>
+<body>
 
-		<!-- Header -->
-			<header id="header">
-				<div class="inner">
-					<a href="#" class="image avatar"><img src="images/Binh Tran.png" alt="" /></a>
-					<h1><strong>Hi, I am Binh.</strong><br />
-					Welcome to my portfolio website!<br />
-					
-				</div>
-			</header>
+  <h1>GHG DI — Risk Exposure (embed test page)</h1>
 
-		<!-- Main -->
-			<div id="main">
+  <div class="toolbar">
+    <button id="exportBtn" disabled>Export to Excel</button>
+    <span id="status"></span>
+  </div>
 
-				<!-- One -->
-					<section id="one">
-						<header class="major">
-							<h2>Introduction<br />
-							
-						</header>
-						<p>I am a certified Power BI developer and tenant admin with a proven track record in impactful projects and delivering strategic insights, specializing in the <strong>Finance and Accounting</strong> domain. I utilize advanced tools such as Power BI, Power Query, SQL and Excel VBA for data analysis. Always open to learning and embracing new technologies that drive innovation. Always open to learning and embracing new technologies that drive innovation. I am currently studying Databricks and Apache Airflow at DataCamp while working on renewable energy projects where real-time data and efficiency are critical</p>
-				
-					</section>
+  <div id="reportContainer"></div>
 
-					<section id="four">
-						
-							<h2>Certifications</h2>
-							
-				
-						<ul class="actions">
-							<li><a href="https://learn.microsoft.com/en-us/users/binhtran-1883/credentials/e4069e8186bb0c03" class="button">Microsoft DP-700</a></li> <li><a href="https://learn.microsoft.com/en-us/users/binhtran-1883/credentials/dba6cff29c2522fe" class="button">Microsoft PL-300</a></li> <li><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/AZM2M28QSYKA" class="button">Google Data Analytics</a></li>
-						</ul>
+  <div class="config-note">
+    <strong>Status:</strong> pointed at the live <code>test-exposure-excel</code> Azure Function, which was
+    verified working (returns a real <code>embedUrl</code> + <code>accessToken</code>). If the report below
+    doesn't render, it's most likely a CORS issue — check the Function App's CORS settings allow the origin
+    you're opening this file from. Next step: set <code>EXPORT_VISUAL_NAME</code> below to the real visual
+    name (see comment) before the export button will do anything.
+  </div>
 
-					
-					</section>
+<script>
+(function () {
+  "use strict";
 
-				<!-- Two -->
-					<section id="two">
-						<h2>My Projects</h2>
-						<div class="row">
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="https://app.powerbi.com/view?r=eyJrIjoiZmM0YmZhMzEtYThlNS00YzA4LWJmNzItZjljNjk3NmM0MDMwIiwidCI6IjE1ODMzZTZhLWI5OWItNGJiOC1iMDJhLWQ0YWU0ODI1OGIwYyIsImMiOjl9"  class="icon"><img src="images/thumbs/momoko.jpg" alt=""  width="380" height="250"/></a>
-								<h3>Revenue Analysis for Momoko Webshop (hun)</h3>
-								<p>Power BI</p>
-							</article>
-						
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="https://app.powerbi.com/view?r=eyJrIjoiMDIzNjEyNWYtYTY0Ny00ZDIxLWI3NmItMTZlZjhhYmQxNDAzIiwidCI6IjE1ODMzZTZhLWI5OWItNGJiOC1iMDJhLWQ0YWU0ODI1OGIwYyIsImMiOjl9" class="icon"><img src="images/thumbs/incomestatement.jpg" alt=""  width="380" height="250"/></a>
-								<h3>Income Statement visualization</h3>
-								<p>Power BI</p>
-							</article>
-					
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="https://github.com/tranbinh1991/VBAETL" class="icon"><img src="images/thumbs/Excel-VBA-th.jpg" alt=""  width="380" height="250"/></a>
-								<h3>Clean and Transform user database</h3>
-								<p>Excel VBA</p>
-							</article>
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="https://blog.blockben.com/" class="icon"><img src="images/thumbs/blog.jpg" alt="" width="380" height="250" /></a>
-								<h3>Blog Internationalization </h3>
-								<p>Javascript</p>
-							</article>
+  // ---- Configuration -------------------------------------------------
+  const REPORT_ID = "78e59c06-7cb8-446c-a455-5c54573a5f98";
+  // Backend endpoint that returns { embedUrl, accessToken, expiry }.
+  // This is where your service-principal token generation lives — never
+  // call GenerateToken directly from the browser with the client secret.
+  const TOKEN_ENDPOINT = "https://test-exposure-excel-dcbrdrg5eedvdhg7.westeurope-01.azurewebsites.net/api/getEmbedToken";
+  // Name of the visual the export button targets. This is the visual's
+  // internal *name* (a GUID-looking string), not its title — find it via
+  // Selection Pane, or by logging page.getVisuals() once embedded.
+  const EXPORT_VISUAL_NAME = "df20272068274409780e";
+  // ---------------------------------------------------------------------
 
-			
-						
-						</div>
-					
-					</section>
+  const models = window["powerbi-client"].models;
+  const reportContainer = document.getElementById("reportContainer");
+  const exportBtn = document.getElementById("exportBtn");
+  const statusEl = document.getElementById("status");
 
-				<!-- Three -->
-					<section id="three">
-						<h2>Get In Touch</h2>
+  let report = null;
 
-						<div class="row">
-							
-							<div class="col-4 col-12-small">
-								<ul class="labeled-icons">
-									<li>
-										<h3 class="icon solid fa-home"><span class="label">Address</span></h3>
-										Budapest, Hungary 
-								
-										
-									</li>
-									<li>
-										<h3 class="icon solid fa-mobile-alt"><span class="label">Phone</span></h3>
-										+36 30 576 7939
-									</li>
-									<li>
-										<h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
-										
-										<a class="mailto" href="mailto:tranbinh.work@gmail.com">tranbinh.work@gmail.com</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</section>
+  function setStatus(message, isError) {
+    statusEl.textContent = message || "";
+    statusEl.classList.toggle("is-error", !!isError);
+  }
 
-				<!-- Four -->
-				<!--
-					<section id="four">
-						<h2>Elements</h2>
+  async function fetchEmbedConfig() {
+    // Placeholder token fetch. Replace with a real call once the backend
+    // endpoint exists. Expected JSON shape:
+    // { embedUrl: "https://app.powerbi.com/reportEmbed?...", accessToken: "...", expiry: "..." }
+    const response = await fetch(TOKEN_ENDPOINT, { method: "GET" });
+    if (!response.ok) {
+      throw new Error(`Token endpoint returned ${response.status}`);
+    }
+    return response.json();
+  }
 
-						<section>
-							<h4>Text</h4>
-							<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-							This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-							This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-							<hr />
-							<header>
-								<h4>Heading with a Subtitle</h4>
-								<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-							</header>
-							<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-							<header>
-								<h5>Heading with a Subtitle</h5>
-								<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-							</header>
-							<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-							<hr />
-							<h2>Heading Level 2</h2>
-							<h3>Heading Level 3</h3>
-							<h4>Heading Level 4</h4>
-							<h5>Heading Level 5</h5>
-							<h6>Heading Level 6</h6>
-							<hr />
-							<h5>Blockquote</h5>
-							<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-							<h5>Preformatted</h5>
-							<pre><code>i = 0;
+  async function embedReport() {
+    setStatus("Requesting embed token…", false);
+    let tokenInfo;
+    try {
+      tokenInfo = await fetchEmbedConfig();
+    } catch (err) {
+      console.error("[GHG Embed] failed to fetch embed token", err);
+      setStatus(
+        "Could not reach the embed token endpoint (" + TOKEN_ENDPOINT + "). " +
+        "This page needs a real backend before it can embed anything.",
+        true
+      );
+      return;
+    }
 
-while (!deck.isInOrder()) {
-print 'Iteration ' + i;
-deck.shuffle();
-i++;
-}
+    const embedConfig = {
+      type: "report",
+      id: REPORT_ID,
+      embedUrl: tokenInfo.embedUrl,
+      accessToken: tokenInfo.accessToken,
+      tokenType: models.TokenType.Embed,
+      settings: {
+        panes: {
+          filters: { visible: false },
+          pageNavigation: { visible: false }
+        }
+      }
+    };
 
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-						</section>
+    report = window.powerbi.embed(reportContainer, embedConfig);
+    // Exposed for debugging in the browser console (F12) — e.g.
+    // report.getActivePage().then(p => p.getVisuals()).then(console.log)
+    window.report = report;
 
-						<section>
-							<h4>Lists</h4>
-							<div class="row">
-								<div class="col-6 col-12-xsmall">
-									<h5>Unordered</h5>
-									<ul>
-										<li>Dolor pulvinar etiam magna etiam.</li>
-										<li>Sagittis adipiscing lorem eleifend.</li>
-										<li>Felis enim feugiat dolore viverra.</li>
-									</ul>
-									<h5>Alternate</h5>
-									<ul class="alt">
-										<li>Dolor pulvinar etiam magna etiam.</li>
-										<li>Sagittis adipiscing lorem eleifend.</li>
-										<li>Felis enim feugiat dolore viverra.</li>
-									</ul>
-								</div>
-								<div class="col-6 col-12-xsmall">
-									<h5>Ordered</h5>
-									<ol>
-										<li>Dolor pulvinar etiam magna etiam.</li>
-										<li>Etiam vel felis at lorem sed viverra.</li>
-										<li>Felis enim feugiat dolore viverra.</li>
-										<li>Dolor pulvinar etiam magna etiam.</li>
-										<li>Etiam vel felis at lorem sed viverra.</li>
-										<li>Felis enim feugiat dolore viverra.</li>
-									</ol>
-									<h5>Icons</h5>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-										<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-										<li><a href="#" class="icon brands fa-tumblr"><span class="label">Tumblr</span></a></li>
-									</ul>
-								</div>
-							</div>
-							<h5>Actions</h5>
-							<ul class="actions">
-								<li><a href="#" class="button primary">Default</a></li>
-								<li><a href="#" class="button">Default</a></li>
-							</ul>
-							<ul class="actions small">
-								<li><a href="#" class="button primary small">Small</a></li>
-								<li><a href="#" class="button small">Small</a></li>
-							</ul>
-							<div class="row">
-								<div class="col-6 col-12-small">
-									<ul class="actions stacked">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-								</div>
-								<div class="col-6 col-12-small">
-									<ul class="actions stacked">
-										<li><a href="#" class="button primary small">Small</a></li>
-										<li><a href="#" class="button small">Small</a></li>
-									</ul>
-								</div>
-								<div class="col-6 col-12-small">
-									<ul class="actions stacked">
-										<li><a href="#" class="button primary fit">Default</a></li>
-										<li><a href="#" class="button fit">Default</a></li>
-									</ul>
-								</div>
-								<div class="col-6 col-12-small">
-									<ul class="actions stacked">
-										<li><a href="#" class="button primary small fit">Small</a></li>
-										<li><a href="#" class="button small fit">Small</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
+    report.off("loaded");
+    report.on("loaded", () => {
+      setStatus("", false);
+      exportBtn.disabled = false;
+    });
 
-						<section>
-							<h4>Table</h4>
-							<h5>Default</h5>
-							<div class="table-wrapper">
-								<table>
-									<thead>
-										<tr>
-											<th>Name</th>
-											<th>Description</th>
-											<th>Price</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Item One</td>
-											<td>Ante turpis integer aliquet porttitor.</td>
-											<td>29.99</td>
-										</tr>
-										<tr>
-											<td>Item Two</td>
-											<td>Vis ac commodo adipiscing arcu aliquet.</td>
-											<td>19.99</td>
-										</tr>
-										<tr>
-											<td>Item Three</td>
-											<td> Morbi faucibus arcu accumsan lorem.</td>
-											<td>29.99</td>
-										</tr>
-										<tr>
-											<td>Item Four</td>
-											<td>Vitae integer tempus condimentum.</td>
-											<td>19.99</td>
-										</tr>
-										<tr>
-											<td>Item Five</td>
-											<td>Ante turpis integer aliquet porttitor.</td>
-											<td>29.99</td>
-										</tr>
-									</tbody>
-									<tfoot>
-										<tr>
-											<td colspan="2"></td>
-											<td>100.00</td>
-										</tr>
-									</tfoot>
-								</table>
-							</div>
+    report.off("error");
+    report.on("error", (event) => {
+      console.error("[GHG Embed] report error", event.detail);
+      setStatus("Report failed to load — see console.", true);
+    });
+  }
 
-							<h5>Alternate</h5>
-							<div class="table-wrapper">
-								<table class="alt">
-									<thead>
-										<tr>
-											<th>Name</th>
-											<th>Description</th>
-											<th>Price</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Item One</td>
-											<td>Ante turpis integer aliquet porttitor.</td>
-											<td>29.99</td>
-										</tr>
-										<tr>
-											<td>Item Two</td>
-											<td>Vis ac commodo adipiscing arcu aliquet.</td>
-											<td>19.99</td>
-										</tr>
-										<tr>
-											<td>Item Three</td>
-											<td> Morbi faucibus arcu accumsan lorem.</td>
-											<td>29.99</td>
-										</tr>
-										<tr>
-											<td>Item Four</td>
-											<td>Vitae integer tempus condimentum.</td>
-											<td>19.99</td>
-										</tr>
-										<tr>
-											<td>Item Five</td>
-											<td>Ante turpis integer aliquet porttitor.</td>
-											<td>29.99</td>
-										</tr>
-									</tbody>
-									<tfoot>
-										<tr>
-											<td colspan="2"></td>
-											<td>100.00</td>
-										</tr>
-									</tfoot>
-								</table>
-							</div>
-						</section>
+  async function onExportClick() {
+    if (!report) {
+      setStatus("Report is not embedded yet.", true);
+      return;
+    }
+    if (EXPORT_VISUAL_NAME === "REPLACE_WITH_VISUAL_NAME") {
+      setStatus("Set EXPORT_VISUAL_NAME to the target visual's internal name first.", true);
+      return;
+    }
 
-						<section>
-							<h4>Buttons</h4>
-							<ul class="actions">
-								<li><a href="#" class="button primary">Primary</a></li>
-								<li><a href="#" class="button">Default</a></li>
-							</ul>
-							<ul class="actions">
-								<li><a href="#" class="button large">Large</a></li>
-								<li><a href="#" class="button">Default</a></li>
-								<li><a href="#" class="button small">Small</a></li>
-							</ul>
-							<ul class="actions fit">
-								<li><a href="#" class="button primary fit">Fit</a></li>
-								<li><a href="#" class="button fit">Fit</a></li>
-							</ul>
-							<ul class="actions fit small">
-								<li><a href="#" class="button primary fit small">Fit + Small</a></li>
-								<li><a href="#" class="button fit small">Fit + Small</a></li>
-							</ul>
-							<ul class="actions">
-								<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-								<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-							</ul>
-							<ul class="actions">
-								<li><span class="button primary disabled">Primary</span></li>
-								<li><span class="button disabled">Default</span></li>
-							</ul>
-						</section>
+    exportBtn.disabled = true;
+    setStatus("Preparing export…", false);
 
-						<section>
-							<h4>Form</h4>
-							<form method="post" action="#">
-								<div class="row gtr-uniform gtr-50">
-									<div class="col-6 col-12-xsmall">
-										<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
-									</div>
-									<div class="col-6 col-12-xsmall">
-										<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
-									</div>
-									<div class="col-12">
-										<select name="demo-category" id="demo-category">
-											<option value="">- Category -</option>
-											<option value="1">Manufacturing</option>
-											<option value="1">Shipping</option>
-											<option value="1">Administration</option>
-											<option value="1">Human Resources</option>
-										</select>
-									</div>
-									<div class="col-4 col-12-small">
-										<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-										<label for="demo-priority-low">Low Priority</label>
-									</div>
-									<div class="col-4 col-12-small">
-										<input type="radio" id="demo-priority-normal" name="demo-priority">
-										<label for="demo-priority-normal">Normal Priority</label>
-									</div>
-									<div class="col-4 col-12-small">
-										<input type="radio" id="demo-priority-high" name="demo-priority">
-										<label for="demo-priority-high">High Priority</label>
-									</div>
-									<div class="col-6 col-12-small">
-										<input type="checkbox" id="demo-copy" name="demo-copy">
-										<label for="demo-copy">Email me a copy of this message</label>
-									</div>
-									<div class="col-6 col-12-small">
-										<input type="checkbox" id="demo-human" name="demo-human" checked>
-										<label for="demo-human">I am a human and not a robot</label>
-									</div>
-									<div class="col-12">
-										<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-									</div>
-									<div class="col-12">
-										<ul class="actions">
-											<li><input type="submit" value="Send Message" class="primary" /></li>
-											<li><input type="reset" value="Reset" /></li>
-										</ul>
-									</div>
-								</div>
-							</form>
-						</section>
+    try {
+      const page = await report.getActivePage();
+      const visuals = await page.getVisuals();
+      const visual = visuals.find(v => v.name === EXPORT_VISUAL_NAME);
 
-						<section>
-							<h4>Image</h4>
-							<h5>Fit</h5>
-							<div class="box alt">
-								<div class="row gtr-50 gtr-uniform">
-									<div class="col-12"><span class="image fit"><img src="images/fulls/05.jpg" alt="" /></span></div>
-									<div class="col-4"><span class="image fit"><img src="images/thumbs/01.jpg" alt="" /></span></div>
-									<div class="col-4"><span class="image fit"><img src="images/thumbs/02.jpg" alt="" /></span></div>
-									<div class="col-4"><span class="image fit"><img src="images/thumbs/03.jpg" alt="" /></span></div>
-									<div class="col-4"><span class="image fit"><img src="images/thumbs/04.jpg" alt="" /></span></div>
-									<div class="col-4"><span class="image fit"><img src="images/thumbs/05.jpg" alt="" /></span></div>
-									<div class="col-4"><span class="image fit"><img src="images/thumbs/06.jpg" alt="" /></span></div>
-									<div class="col-4"><span class="image fit"><img src="images/thumbs/03.jpg" alt="" /></span></div>
-									<div class="col-4"><span class="image fit"><img src="images/thumbs/02.jpg" alt="" /></span></div>
-									<div class="col-4"><span class="image fit"><img src="images/thumbs/01.jpg" alt="" /></span></div>
-								</div>
-							</div>
-							<h5>Left &amp; Right</h5>
-							<p><span class="image left"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-							<p><span class="image right"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-						</section>
+      if (!visual) {
+        setStatus(`Visual "${EXPORT_VISUAL_NAME}" not found on the active page.`, true);
+        return;
+      }
 
-					</section>
-				-->
+      const result = await visual.exportData(models.ExportDataType.Summarized);
+      downloadCsv(result.data, buildFileName());
+      setStatus("", false);
+    } catch (err) {
+      console.error("[GHG Export] export failed", err);
+      setStatus("Export failed — see console for details.", true);
+    } finally {
+      exportBtn.disabled = false;
+    }
+  }
 
-			</div>
+  function buildFileName() {
+    const stamp = new Date().toISOString().slice(0, 10);
+    return `ghg_export_${stamp}.csv`;
+  }
 
-		<!-- Footer -->
-			<footer id="footer">
-				<h3>Social</h3>
-				<div class="inner">
-					<ul class="icons">
-						<li><a href="https://www.linkedin.com/in/binh-t-365863280/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-						<li><a href="https://github.com/tranbinh1991" class="icon brands fa-github"><span class="label">Github</span></a></li>
-						<li><a href="mailto:tranbinh.work@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
-				
-				</div>
-			</footer>
+  function downloadCsv(csvText, fileName) {
+    // The host page is NOT sandboxed the way a custom visual is, so the
+    // standard Blob + <a download> approach works fine here.
+    const blob = new Blob(["﻿" + csvText], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.poptrox.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+  exportBtn.addEventListener("click", onExportClick);
+  embedReport();
+})();
+</script>
 
-	</body>
+</body>
 </html>
